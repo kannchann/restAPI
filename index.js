@@ -90,13 +90,9 @@ input.addEventListener("input", (e) => {
   callDebounce(e.target.value);
 });
 
-document.addEventListener(
-  "click",
-  (e) => {
-    console.log(e.target.parentNode);
-    if (e.target.matches(".product")) {
-      console.log("clicked");
-    }
-  },
-  true
-);
+document.addEventListener("click", (e) => {
+  console.log(e.target);
+  if (e.target.matches(".product")) {
+    console.log("clicked");
+  }
+});
