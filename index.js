@@ -89,3 +89,9 @@ const callDebounce = debounceFunction(fetchProducts, 500);
 input.addEventListener("input", (e) => {
   callDebounce(e.target.value);
 });
+
+const item = document.querySelector(".product");
+console.log(item);
+item.addEventListener("click", (e) => {
+  item.style.backgroundColor = "red";
+});
