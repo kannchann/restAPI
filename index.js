@@ -90,8 +90,13 @@ input.addEventListener("input", (e) => {
   callDebounce(e.target.value);
 });
 
-const item = document.querySelector(".product");
-console.log(item);
-item.addEventListener("click", (e) => {
-  item.style.backgroundColor = "red";
-});
+document.addEventListener(
+  "click",
+  (e) => {
+    console.log(e.target.parentNode);
+    if (e.target.matches(".product")) {
+      console.log("clicked");
+    }
+  },
+  true
+);
