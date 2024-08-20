@@ -1,0 +1,22 @@
+@use 'abstracts' as *;
+body{
+    font-family: "Poppins", sans-serif;
+    background-color: $primary;
+}
+    
+
+
+.container{
+    padding: 1rem;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+
+}
+a{
+    color:black;
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
