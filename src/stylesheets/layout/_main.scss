@@ -10,9 +10,7 @@
     border-radius: 1rem;
     padding: 3rem;
     flex: 1;
-    p{
-        color: grey;
-    }
+
     .product-list{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
