@@ -39,7 +39,7 @@ const productRender = (products) => {
   result.innerHTML = products
     .map(
       (product) => `
-        <div class=product>
+        <div  class=product onclick= "handleProductClick(event)" data-id= ${product.id}>
         <img loading="lazy" src=${product.thumbnail}>
         <div class=productDesc>
         <p>${product.title}</p>
@@ -90,9 +90,7 @@ input.addEventListener("input", (e) => {
   callDebounce(e.target.value);
 });
 
-document.addEventListener("click", (e) => {
-  console.log(e.target);
-  if (e.target.matches(".product")) {
-    console.log("clicked");
-  }
-});
+function handleProductClick(event) {
+  const productId = event.currentTarget.dataset.id;
+  window.location.href = `product.html?id=${productId}`;
+}
