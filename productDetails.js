@@ -25,8 +25,15 @@ const productDetailsRender = (product) => {
     )
     .join("");
 
-  productDetailsContainer.innerHTML = `<div class= main-image-div>
-  <img loading="lazy" src= ${product.thumbnail}></div>
+  const imagesHTML = product.images
+    .map((image) => `<div class="mini-images"><img src="${image}"></div>`)
+    .join("");
+
+  productDetailsContainer.innerHTML = `<div><div class= main-image-div>
+  <img class= "thumbnail-img"loading="lazy" src= ${product.thumbnail}>
+  </div>
+  <div class="small-images">${imagesHTML}</div>
+  </div>
   <div class="title"><h2>${product.title}</h2>
   <p>Brand: ${product.brand}</p>
   <span class="product-price">$${product.price.toFixed(2)}</span>
@@ -71,8 +78,14 @@ const productDetailsRender = (product) => {
 
 document.body.addEventListener("click", function (event) {
   const parent = event.target.closest(".content-container");
+  const imageClicked = event.target.closest(".mini-images");
   if (parent && event.target.classList.contains("question")) {
     parent.classList.toggle("active");
+  }
+  if (imageClicked) {
+    const mainImage = document.querySelector(".thumbnail-img");
+    const newSrc = imageClicked.querySelector("img").src;
+    mainImage.src = newSrc;
   }
 });
 
