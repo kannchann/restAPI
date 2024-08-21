@@ -1,7 +1,7 @@
 @use "abstracts" as *;
 
 .product-detail-container {
-    padding: 3rem;
+  padding: 3rem;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -27,7 +27,7 @@
 
   .main-image-div {
     max-width: 500px;
-    height: 500px;
+    height: 400px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    img {
       width: 100%;
@@ -37,6 +37,7 @@
   
   }
   .title{
+    height: 100%;
     .product-discount{
       color: red;
 
@@ -84,4 +85,14 @@
 .accordian .content-container.active .question::after {
   content: "-";
   transition: 0.5s;
+}
+
+
+.back-button{
+  cursor: pointer;
+.fa-solid{
+ margin: 3rem 0 0 3rem;
+ font-size: 1rem;
+
+}
 }
