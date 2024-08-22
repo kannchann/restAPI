@@ -14,8 +14,18 @@ const fetchBySearch = (searchValue) =>
     response.json()
   );
 
-const fetchAllProducts = () =>
-  fetch(API_BASE_URL).then((response) => response.json());
+const fetchAllProducts = () => {
+  const cachedData = localStorage.getItem("products");
+  if (cachedData) {
+    return Promise.resolve(JSON.parse(cachedData));
+  }
+  return fetch(API_BASE_URL)
+    .then((response) => response.json())
+    .then((data) => {
+      localStorage.setItem("products", JSON.stringify(data));
+      return data;
+    });
+};
 
 const fetchProducts = (searchValue = "", category = "") => {
   let fetchPromise;
@@ -51,24 +61,36 @@ const productRender = (products) => {
 };
 
 const fetchCategoryList = () => {
-  fetch("https://dummyjson.com/products/category-list")
+  const cachedData = localStorage.getItem("categoryList");
+  if (cachedData) {
+    const categories = JSON.parse(cachedData);
+    renderCategoryButtons(categories);
+    return Promise.resolve(categories);
+  }
+  return fetch("https://dummyjson.com/products/category-list")
     .then((res) => res.json())
-    .then((categories) => {
-      categoryButtonsContainer.innerHTML = categories
-        .map(
-          (category) =>
-            `<button class = category-button data-category="${category}">${category}</button>
-        `
-        )
-        .join("");
-
-      document.querySelectorAll(".category-button").forEach((button) => {
-        button.addEventListener("click", () => {
-          fetchProducts(input.value, button.dataset.category);
-        });
-      });
+    .then((data) => {
+      localStorage.setItem("categoryList", JSON.stringify(data));
+      renderCategoryButtons(data);
+      return data;
     })
     .catch((error) => console.error("Error fetching categories:", error));
+};
+
+const renderCategoryButtons = (categories) => {
+  categoryButtonsContainer.innerHTML = categories
+    .map(
+      (category) =>
+        `<button class = category-button data-category="${category}">${category}</button>
+  `
+    )
+    .join("");
+
+  document.querySelectorAll(".category-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      fetchProducts(input.value, button.dataset.category);
+    });
+  });
 };
 
 fetchProducts();
