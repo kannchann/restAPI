@@ -42,6 +42,24 @@ li {
   list-style: none;
 }
 
+.button {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  color: rgb(8, 92, 8);
+  border: 1px white solid;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 1rem;
+  border-color: rgb(8, 92, 8);
+}
+
+.button:hover {
+  background-color: rgb(8, 92, 8);
+  color: white;
+  transition: 0.2s ease-in;
+}
+
 .sidebar {
   background-color: rgb(235, 238, 232);
   width: fit-content;
@@ -89,14 +107,6 @@ li {
   flex-shrink: 0;
   flex-grow: 0;
 }
-.result-container .heading button {
-  margin-top: 1rem;
-  padding: 0.5rem;
-  background-color: rgb(235, 238, 232);
-  border: 1px black solid;
-  border-radius: 5px;
-  cursor: pointer;
-}
 .result-container .product-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -139,6 +149,14 @@ li {
   border-radius: 50%;
   border: none;
   float: right;
+  cursor: pointer;
+}
+.modal .modal-content .btn-close:hover {
+  background-color: red;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  transition: 0.5s ease-in-out;
 }
 .modal .modal-content .add-product-form {
   padding-top: 1rem;

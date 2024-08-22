@@ -12,16 +12,6 @@
     flex: 1;
     .heading{
         @include flexbox($justifyContent:space-between);
-        button{
-            margin-top: 1rem;
-            padding: 0.5rem;
-            background-color: $primary;
-            border: 1px black solid;
-            border-radius: 5px;
-            cursor: pointer;
-        
-         
-        }
     }
 
     .product-list{

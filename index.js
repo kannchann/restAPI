@@ -5,6 +5,7 @@ const input = document.querySelector("input"); //search bar
 const addProductButton = document.querySelector(".add-product-button");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
+const closeBtn = document.querySelector(".btn-close");
 
 const API_BASE_URL = "https://dummyjson.com/products";
 
@@ -132,3 +133,4 @@ const closeModal = function () {
 };
 
 overlay.addEventListener("click", closeModal);
+closeBtn.addEventListener("click", closeModal);
