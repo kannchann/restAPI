@@ -15,6 +15,23 @@
   </head>
   <body>
     <main id="main">
+      <section class="modal hidden">
+        <div class="modal-content">
+          <button class="btn-close">⨉</button>
+            <h2>Add Product</h2>
+ 
+          <form class="add-product-form">
+            <label for="title">Product Name</label>
+            <input type="text" name="" id="title" />
+            <label for="price">Product Prince</label>
+            <input type="text" name="" id="price" />
+            <label for="thumbnail">Product thumbnail</label>
+            <input type="file" name="" id="thumbnail" />
+          </form>
+
+        </div>
+      </section>
+      <div class="overlay hidden"></div>
       <nav class="sidebar">
         <div class="profile">Hi, Martin Cooper</div>
         <div class="search-container">
@@ -24,8 +41,14 @@
       </nav>
 
       <div class="result-container">
-        <h1>All products</h1>
-        <p>Browse whatever you need</p>
+        <div class="heading">
+          <div>
+            <h1>All products</h1>
+            <p>Browse whatever you need</p>
+          </div>
+          <div><button class="add-product-button">Add product</button></div>
+        </div>
+
         <hr />
         <div class="product-list"></div>
       </div>
@@ -34,5 +57,3 @@
     <script src="index.js"></script>
   </body>
 </html>
-
-

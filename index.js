@@ -1,6 +1,10 @@
 const result = document.querySelector(".product-list"); // all the products container
 const categoryButtonsContainer = document.querySelector(".category-buttons"); //buttons container
 const input = document.querySelector("input"); //search bar
+//modal
+const addProductButton = document.querySelector(".add-product-button");
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
 
 const API_BASE_URL = "https://dummyjson.com/products";
 
@@ -116,3 +120,15 @@ function handleProductClick(event) {
   const productId = event.currentTarget.dataset.id;
   window.location.href = `product.html?id=${productId}`;
 }
+
+addProductButton.addEventListener("click", () => {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+});
+
+const closeModal = function () {
+  overlay.classList.add("hidden");
+  modal.classList.add("hidden");
+};
+
+overlay.addEventListener("click", closeModal);

@@ -23,7 +23,7 @@ p {
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: white;
+  background-color: rgb(235, 238, 232);
   max-width: 1600px;
   margin: 0 auto;
 }
@@ -81,6 +81,22 @@ li {
   padding: 3rem;
   flex: 1;
 }
+.result-container .heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.result-container .heading button {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: rgb(235, 238, 232);
+  border: 1px black solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
 .result-container .product-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -100,6 +116,57 @@ li {
 }
 .result-container .product .productDesc {
   padding-left: 1rem;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto; /* Automatically adjust to fit the content */
+  max-width: 90%;
+  z-index: 3;
+}
+.modal .modal-content {
+  padding: 3rem;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+}
+.modal .modal-content .btn-close {
+  padding: 0.5rem 0.7rem;
+  background: #eee;
+  border-radius: 50%;
+  border: none;
+  float: right;
+}
+.modal .modal-content .add-product-form {
+  padding-top: 1rem;
+  display: flex;
+  gap: 0.2rem;
+  flex-direction: column;
+  width: 400px;
+}
+.modal .modal-content .add-product-form input[type=text] {
+  width: 100%;
+  font-size: 18px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 2;
+}
+
+.hidden {
+  display: none;
 }
 
 .product-detail-container {
