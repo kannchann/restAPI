@@ -18,26 +18,40 @@
       <section class="modal hidden">
         <div class="modal-content">
           <button class="btn-close">⨉</button>
-            <h2>Add Product</h2>
- 
-          <form class="add-product-form">
-            <label for="title">Product Name</label>
-            <input type="text" name="" id="title" />
-            <label for="price">Product Prince</label>
-            <input type="text" name="" id="price" />
-            <label for="thumbnail">Product thumbnail</label>
-            <input type="file" name="" id="thumbnail" />
-            <input class="button" type="submit" value="Submit">
+          <h2>Add Product</h2>
 
+          <form class="add-product-form" id="form">
+            <div class="form-control">
+              <label for="title">Product Name</label>
+              <input type="text" name="" id="title" />
+              <small></small>
+            </div>
+            <div class="form-=control">
+              <label for="price">Product Price</label>
+              <input type="text" name="" id="price" />
+              <small></small>
+            </div>
+            <div class="form-control">
+              <label for="brand">Brand</label>
+              <input type="text" name="" id="brand" />
+              <small></small>
+            </div>
+            <div class="form-control">
+              <label for="thumbnail">Product thumbnail</label>
+              <input type="file" name="" id="thumbnail" />
+              <small style="display: block;"></small>
+            </div>
+      
+           
+            <input class="button" id="submit" type="submit" value="Submit" />
           </form>
-
         </div>
       </section>
       <div class="overlay hidden"></div>
       <nav class="sidebar">
-        <div class="profile">Hi, Martin Cooper</div>
+        <div class="profile"><img src="" alt="" /></div>
         <div class="search-container">
-          <input type="text" placeholder="Search" name="search" />
+          <input id="search" type="text" placeholder="Search" name="search" />
         </div>
         <div class="category-buttons"></div>
       </nav>
@@ -48,10 +62,11 @@
             <h1>All products</h1>
             <p>Browse whatever you need</p>
           </div>
-          <div><button class="button add-product-button">Add product</button></div>
+          <div>
+            <button class="button add-product-button">Add product</button>
+          </div>
         </div>
 
-        <hr />
         <div class="product-list"></div>
       </div>
     </main>

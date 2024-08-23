@@ -1,6 +1,6 @@
 const result = document.querySelector(".product-list"); // all the products container
 const categoryButtonsContainer = document.querySelector(".category-buttons"); //buttons container
-const input = document.querySelector("input"); //search bar
+const input = document.getElementById("search"); //search bar
 //modal
 const addProductButton = document.querySelector(".add-product-button");
 const modal = document.querySelector(".modal");
@@ -134,3 +134,111 @@ const closeModal = function () {
 
 overlay.addEventListener("click", closeModal);
 closeBtn.addEventListener("click", closeModal);
+
+// form.js
+const form = document.getElementById("form");
+const title = document.getElementById("title");
+const price = document.getElementById("price");
+const brand = document.getElementById("brand");
+const thumbnail = document.getElementById("thumbnail");
+const thumbnailPreview = document.getElementById("thumbnail-preview");
+
+function showError(input, message) {
+  const formControl = input.parentElement;
+  formControl.className = "form-control error";
+  const small = formControl.querySelector("small");
+  small.innerText = message;
+}
+
+function clearError(input) {
+  const formControl = input.parentElement;
+  formControl.className = "form-control";
+  const small = formControl.querySelector("small");
+  small.innerText = "";
+}
+
+function getFieldName(input) {
+  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
+
+function checkRequired(inputArr) {
+  let isValid = true;
+  inputArr.forEach(function (input) {
+    if (input.type === "file") {
+      if (!input.files[0]) {
+        showError(input, `${getFieldName(input)} is required`);
+        isValid = false;
+      } else {
+        clearError(input);
+      }
+    } else if (input.value.trim() === "") {
+      showError(input, `${getFieldName(input)} is required`);
+      isValid = false;
+    } else {
+      clearError(input);
+    }
+  });
+  return isValid;
+}
+
+function checkLettersOnly(inputArr) {
+  const lettersOnlyRegex = /^[A-Za-z]+$/;
+  let isValid = true;
+
+  inputArr.forEach(function (input) {
+    const value = input.value.trim();
+    if (value !== "" && !lettersOnlyRegex.test(value)) {
+      showError(input, `${getFieldName(input)} can only contain letters`);
+      isValid = false;
+    } else if (value !== "") {
+      clearError(input);
+    }
+  });
+
+  return isValid;
+}
+
+function checkImageFile(input) {
+  const allowedExtensions = ["image/jpeg", "image/png", "image/gif"];
+  if (input.files[0] && !allowedExtensions.includes(input.files[0].type)) {
+    showError(input, "Only JPEG, PNG, and GIF files are allowed");
+    return false;
+  }
+  return true;
+}
+
+function previewImage() {
+  const file = thumbnail.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      thumbnailPreview.src = e.target.result;
+      thumbnailPreview.classList.remove("hidden");
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+thumbnail.addEventListener("change", previewImage);
+
+const errorCheck = (e) => {
+  const isFormValid = checkRequired([title, price, brand, thumbnail]);
+  const isLettersValid = checkLettersOnly([title, price, brand]);
+  const isThumbnailValid = checkImageFile(thumbnail);
+
+  if (!isFormValid || !isLettersValid || !isThumbnailValid) {
+    e.preventDefault(); // Prevent form submission if there are errors
+    return; // Stop further execution
+  }
+
+  const productDetails = [
+    title.value,
+    price.value,
+    brand.value,
+    thumbnail.files[0],
+  ];
+
+  console.log(productDetails); // Log the array or use it as needed
+};
+
+form.addEventListener("submit", errorCheck);

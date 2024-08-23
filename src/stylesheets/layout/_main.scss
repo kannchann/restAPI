@@ -12,6 +12,14 @@
     flex: 1;
     .heading{
         @include flexbox($justifyContent:space-between);
+        flex-wrap: wrap;
+        padding-bottom: 0.5rem;
+        border-bottom: $secondary 1px solid;
+        div{ 
+            margin-top: auto;
+        margin-bottom: 1px;
+        }
+
     }
 
     .product-list{

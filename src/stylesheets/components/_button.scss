@@ -1,19 +1,19 @@
 @use 'abstracts' as *;
 .button{
-    margin-top: 1rem;
-    padding: 0.8rem;
-    color: rgb(8, 92, 8);
+
+    padding: 0.5rem;
+    color: $secondary;
     border: 1px white solid;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 1rem;
-    border-color: rgb(8, 92, 8) ;
+    border-color:  $secondary ;
 
 }
 
 .button:hover{
-    background-color: rgb(8, 92, 8);
+    background-color: $secondary;
     color: white;
     transition: 0.2s ease-in;
 }

@@ -11,6 +11,11 @@
   width: 100%;
 }
 
+h1 {
+  font-weight: 600;
+  color: rgb(8, 92, 8);
+}
+
 h2 {
   font-weight: 400;
 }
@@ -43,13 +48,12 @@ li {
 }
 
 .button {
-  margin-top: 1rem;
-  padding: 0.8rem;
+  padding: 0.5rem;
   color: rgb(8, 92, 8);
   border: 1px white solid;
   border-radius: 5px;
   cursor: pointer;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1rem;
   border-color: rgb(8, 92, 8);
 }
@@ -76,7 +80,7 @@ li {
   font-weight: bold;
   padding: 0.5 0rem;
 }
-.sidebar input[type=text] {
+.sidebar #search {
   padding: 6px;
   margin-top: 8px;
   font-size: 17px;
@@ -106,6 +110,13 @@ li {
   flex-wrap: nowrap;
   flex-shrink: 0;
   flex-grow: 0;
+  flex-wrap: wrap;
+  padding-bottom: 0.5rem;
+  border-bottom: rgb(8, 92, 8) 1px solid;
+}
+.result-container .heading div {
+  margin-top: auto;
+  margin-bottom: 1px;
 }
 .result-container .product-list {
   display: grid;
@@ -161,13 +172,20 @@ li {
 .modal .modal-content .add-product-form {
   padding-top: 1rem;
   display: flex;
-  gap: 0.2rem;
+  gap: 0.5rem;
   flex-direction: column;
   width: 400px;
 }
 .modal .modal-content .add-product-form input[type=text] {
   width: 100%;
   font-size: 18px;
+}
+.modal .modal-content .add-product-form .form-control small {
+  visibility: hidden;
+}
+.modal .modal-content .add-product-form .form-control.error small {
+  visibility: visible;
+  color: red;
 }
 
 .overlay {
