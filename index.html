@@ -22,7 +22,7 @@
 
           <form class="add-product-form" id="form">
             <div class="form-control">
-              <label for="title">Product Name</label>
+              <label for="title">Product Title</label>
               <input type="text" name="" id="title" />
               <small></small>
             </div>
@@ -39,36 +39,47 @@
             <div class="form-control">
               <label for="thumbnail">Product thumbnail</label>
               <input type="file" name="" id="thumbnail" />
-              <small style="display: block;"></small>
+              <small style="display: block"></small>
             </div>
-      
-           
+
             <input class="button" id="submit" type="submit" value="Submit" />
           </form>
         </div>
       </section>
       <div class="overlay hidden"></div>
-      <nav class="sidebar">
-        <div class="profile"><img src="" alt="" /></div>
+
+      <nav>
+        <div>
+          <img src="src/assets/logo.svg" alt="">
+        </div>
         <div class="search-container">
+          <img src="src/assets/search-icon.svg">
           <input id="search" type="text" placeholder="Search" name="search" />
         </div>
-        <div class="category-buttons"></div>
-      </nav>
+         <div class="profile"><img src="src/assets/profile-photo.jpg" alt=""></div>
 
-      <div class="result-container">
-        <div class="heading">
-          <div>
-            <h1>All products</h1>
-            <p>Browse whatever you need</p>
+      </nav>
+      <section class="main-part">
+        <aside class="sidebar">
+          <h2>Categories</h2>
+          <div class="category-buttons"></div>
+        </aside>
+  
+  
+        <div class="result-container">
+          <div class="heading">
+            <div>
+              <h1>All products</h1>
+            </div>
+            <div>
+              <button class="button add-product-button">Add product</button>
+            </div>
           </div>
-          <div>
-            <button class="button add-product-button">Add product</button>
-          </div>
+  
+          <div class="product-list"></div>
         </div>
 
-        <div class="product-list"></div>
-      </div>
+      </section>
     </main>
 
     <script src="index.js"></script>

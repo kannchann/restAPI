@@ -55,7 +55,7 @@ const productRender = (products) => {
     .map(
       (product) => `
         <div  class=product onclick= "handleProductClick(event)" data-id= ${product.id}>
-        <img loading="lazy" src=${product.thumbnail}>
+        <div class="image-container"> <img loading="lazy" src=${product.images[0]}></div>
         <div class=productDesc>
         <p>${product.title}</p>
         <p>Price: $${product.price}</p></div>

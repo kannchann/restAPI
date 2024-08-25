@@ -1,14 +1,15 @@
 @use 'abstracts' as *;
 .button{
 
-    padding: 0.5rem;
-    color: $secondary;
+    font-family: "Montserrat", sans-serif;
+    padding: 0.7rem 1rem;
+    color: $primary-dark;
     border: 1px white solid;
-    border-radius: 5px;
+    // border-radius: 5px;
     cursor: pointer;
-    font-weight: 500;
-    font-size: 1rem;
-    border-color:  $secondary ;
+    font-weight: 400;
+    font-size: 1.2rem;
+    // border-color:  $primary-dark ;
 
 }
 

@@ -1,20 +1,17 @@
 @use 'abstracts' as *;
-#main{
+.main-part{
     display: flex;
 }
 
 .result-container{
     background-color: white;
-    margin: 1rem;
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-    border-radius: 1rem;
     padding: 3rem;
     flex: 1;
     .heading{
         @include flexbox($justifyContent:space-between);
         flex-wrap: wrap;
         padding-bottom: 0.5rem;
-        border-bottom: $secondary 1px solid;
+        border-bottom: $underline 1px solid;
         div{ 
             margin-top: auto;
         margin-bottom: 1px;
@@ -23,31 +20,44 @@
     }
 
     .product-list{
+        margin-top: 1rem;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
         grid-column-gap: 1rem;
-        grid-row-gap: 0.5rem;
+        grid-row-gap: 1rem;
    
     }
 
     .product{
-       margin-top: 1rem;
-        box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        border-radius: 10px;
+
         cursor: pointer;
-        img{
+       .image-container{
+            background-color: $primary;
+            img{
             width: 100%;
-            border-radius: 10px;
-            object-fit: cover;
+            height: 300px;
+            object-fit: contain;
+            transition: transform 0.3s ease-in-out;}
             
         }
-        .productDesc{
-            padding-left: 1rem;
+        .productDesc:hover{
+
+            p{
+                color: $primary-dark ;
+                font-weight: 500;
+            }
+        }
+
+    }
+    .product:hover{
+        img{
+            transform: scale(1.1);
 
         }
 
-
     }
+
     
 }
+
 
